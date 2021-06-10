@@ -1,0 +1,97 @@
+/****** RESET */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+
+/****** Main Container */
+
+.main {
+    width: 100%;
+    margin: 20px auto;
+}
+
+
+/****** Score Container */
+.score-container, h1 {
+    width: 60%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+
+/****** Global Choice Container */
+.global-choice-container {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/****** User and Opponent Choice Container */
+.user-choice-container, .opponent-choice-container {
+    width: 33vw;
+    height: 50vh;
+    background-color:lightsalmon;
+    position: relative;
+}
+
+.choice-element {
+    cursor: pointer;
+    position: absolute;
+    width: 33%;
+    height: 33%;
+    text-align: center;
+}
+
+.choice-element > i {
+    font-size: 9rem;
+}
+
+.choice-leaf {
+    top: 2.5vh;
+    left: 13vw;
+}
+
+.choice-rock {
+    top: 29vh;
+    left: 18vw;
+}
+
+.choice-scissors {
+   /*transform: rotate(-90deg);*/
+    top: 22vh;
+    left: 5vw;
+}
+
+/*** Info bulle à voir */
+
+.choice-info {
+    display: none;
+}
+/*
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: -4vh;
+    left: 9vw;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px black;
+    font-size: 2rem;
+    background-color: white;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.choice-info:hover::after,.choice-info:focus::after {
+    display: block;
+}
+*/
+
+/****** User Choice Container */
+.user-choice-container {
+    
+}
