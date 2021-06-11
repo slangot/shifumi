@@ -24,9 +24,9 @@
 
             <!-- User choice container -->
             <div class="user-choice-container">
-                <div class="choice-element choice-leaf" title="LEAF" value="LEAF"><i class="fas fa-hand-paper"><span class="choice-info">Leaf</span></i></div>
-                <div class="choice-element choice-rock" title="ROCK" value="ROCK"><i class="fas fa-hand-rock"></i><span class="choice-info">Rock</span></div>
-                <div class="choice-element choice-scissors" title="SCISSORS" value="SCISSORS"><i class="fas fa-cut"></i><span class="choice-info">Scissors</span></div>
+                <div class="choice-element choice-leaf" title="PAPER" value="1"><i class="fas fa-hand-paper"></i><span class="choice-info">Leaf</span></div>
+                <div class="choice-element choice-rock" title="ROCK" value="2"><i class="fas fa-hand-rock"></i><span class="choice-info">Rock</span></div>
+                <div class="choice-element choice-scissors" title="SCISSORS" value="3"><i class="fas fa-cut"></i><span class="choice-info">Scissors</span></div>
             </div>
 <!-- 
             < ! - - Opponent choice container - - >
@@ -40,12 +40,17 @@
 
         <!-- Fight container -->
         <div class="fight-container">
-            <h2>Fight</h2>
+            <div class="fight-info-container">
+                <h2>Fight</h2>
+                <h3 class="fight-result-info"></h3>
+            </div>
             <div class="fight-box">
                 <div class="choice-fight user-choice-fight"><i class="fas fa-hand-rock"></i></div>
                 <div class="choice-fight opponent-choice-fight"><i class="fas fa-hand-rock"></i></div>
             </div>
         </div>
     </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>
