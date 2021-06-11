@@ -3,8 +3,8 @@
 /****** Choice Container */
 const choiceElement = document.querySelectorAll('.choice-element');
 let userChoice = 0;
-const userScore = document.querySelectorAll('#user-score');
-const opponentScore = document.querySelectorAll('#opponent-score');
+const userScore = document.querySelector('#user-score');
+const opponentScore = document.querySelector('#opponent-score');
 
 /****** Fight Container */
 const fightContainer =  document.querySelector('.fight-container');
@@ -13,6 +13,7 @@ const fightResultInfo = document.querySelector('.fight-result-info');
 let userChoiceFight = document.querySelector('.user-choice-fight');
 let opponentChoiceFight = document.querySelector('.opponent-choice-fight');
 
+let opponentRandomChoice = 0;
 let fightCurrentResult = "";
 let userCurrentScore = 0;
 let opponentCurrentScore = 0;
@@ -113,6 +114,7 @@ const scoreManage = (gameResult) => {
 // Function to reset the game
 const resetGame = () => {
     fightCurrentResult = "";
+    opponentRandomChoice = 0;
     userChoice = 0;
     fightResultInfo.innerHTML = "";
     userChoiceFight.innerHTML = '<i class="fas fa-hand-rock"></i>';
@@ -121,14 +123,23 @@ const resetGame = () => {
 
 
 // For each element in choiceElement, we listen the event and take back the value
-for(let i = 0; i < choiceElement.length; i++) {
-    choiceElement[i].addEventListener('click', () => {
-        console.log(choiceElement[i].getAttribute("value"));
-        userChoice = parseInt(choiceElement[i].getAttribute("value"));
-        fightContainer.style.display = "block";
-        setTimeout(function() { userChoiceChange(userChoice); opponentChoiceChange(opponentChoiceGenerator()); fightResult(userChoice,opponentChoiceGenerator()); console.log(fightCurrentResult); scoreManage(fightCurrentResult); }, 2000);
-        setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 4000);
-    });
-}
+// for(let i = 0; i < choiceElement.length; i++) {
+//     choiceElement[i].addEventListener('click', () => {
+//         console.log(choiceElement[i].getAttribute("value"));
+//         userChoice = parseInt(choiceElement[i].getAttribute("value"));
+//         fightContainer.style.display = "block";
+//         setTimeout(function() { userChoiceChange(userChoice); opponentChoiceChange(opponentChoiceGenerator()); fightResult(userChoice,opponentChoiceGenerator()); console.log(fightCurrentResult); scoreManage(fightCurrentResult); }, 2000);
+//         setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 4000);
+//     });
+// }
 
+choiceElement.forEach(function(choice) {
+    choice.addEventListener('click', () => {
+        console.log(choice.getAttribute("value"));
+        userChoice = parseInt(choice.getAttribute("value"));
+        fightContainer.style.display = "block";
+        setTimeout(function() { userChoiceChange(userChoice); opponentRandomChoice = opponentChoiceGenerator(); opponentChoiceChange(opponentRandomChoice); fightResult(userChoice, opponentRandomChoice); console.log(fightCurrentResult); scoreManage(fightCurrentResult); }, 2000);
+        setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 4000);
+    })
+})
 console.log(opponentChoiceGenerator());
