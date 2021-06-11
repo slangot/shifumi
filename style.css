@@ -25,7 +25,6 @@
 
 /****** Global Choice Container */
 .global-choice-container {
-    border: 1px solid blue;
     display: flex;
     justify-content: space-around;
 }
@@ -35,8 +34,10 @@
 .user-choice-container{
     width: 50vw;
     height: 70vh;
-    background-color:rgba(255, 160, 122, 0.418);
+    background-color:rgba(185, 184, 183, 0.418);
     position: relative;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px black;
 }
 
 .choice-element {
@@ -53,18 +54,18 @@
 }
 
 .choice-leaf {
-    top: 2.5vh;
-    left: 13vw;
+    top: 5vh;
+    left: 16vw;
 }
 
 .choice-rock {
-    top: 29vh;
-    left: 18vw;
+    top: 43vh;
+    left: 25vw;
 }
 
 .choice-scissors {
    /*transform: rotate(-90deg);*/
-    top: 22vh;
+    top: 30vh;
     left: 5vw;
 }
 
@@ -80,24 +81,7 @@
 .choice-info {
     display: none;
 }
-/*
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    top: -4vh;
-    left: 9vw;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px black;
-    font-size: 2rem;
-    background-color: white;
-    text-align: center;
-    transition: 0.2s;
-}
 
-.choice-info:hover::after,.choice-info:focus::after {
-    display: block;
-}
-*/
 
 /****** User Choice Container */
 .user-choice-container {
@@ -214,6 +198,42 @@ h3 {
     }
 }
 
+@keyframes lose-fight-animation {
+    to {
+        top: 130vh;
+    }
+}
+
+@keyframes user-win-fight-animation {
+    25% {
+        top: 15vh;
+        left: 50vw;
+    }
+    50% {
+        top: 42vh;
+        left: 50vw;
+    }
+    100% {
+        top: 40vh;
+        left: 0vw;
+    }
+}
+
+@keyframes opponent-win-fight-animation {
+    25% {
+        top: 15vh;
+        left: 0vw;
+    }
+    50% {
+        top: 42vh;
+        left: 0vw;
+    }
+    100% {
+        top: 40vh;
+        left: 50vw;
+    }
+}
+
 @keyframes opponent-choice-fight-animation {
     0% {
         transform: rotate(-90deg) scaleX(-1);
@@ -237,3 +257,4 @@ h3 {
         transform: rotate(-90deg) scaleX(-1);
     }
 }
+

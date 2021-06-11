@@ -111,6 +111,25 @@ const scoreManage = (gameResult) => {
     }
 }
 
+
+// Function to animate the game result
+const gameResultAnimation = (result) => {
+    switch(result) {
+        case "win":
+            userChoiceFight.style.animation = "user-win-fight-animation 2s";
+            opponentChoiceFight.style.animation = "lose-fight-animation 3s";
+            break;
+        case "lose":
+            opponentChoiceFight.style.animation = "opponent-win-fight-animation 2s";
+            userChoiceFight.style.animation = "lose-fight-animation 3s";
+            break;
+        case "draw":
+            break;
+        default:
+            console.error("ANIMATION NOT POSSIBLE");
+    }
+}
+
 // Function to reset the game
 const resetGame = () => {
     fightCurrentResult = "";
@@ -119,27 +138,18 @@ const resetGame = () => {
     fightResultInfo.innerHTML = "";
     userChoiceFight.innerHTML = '<i class="fas fa-hand-rock"></i>';
     opponentChoiceFight.innerHTML = '<i class="fas fa-hand-rock"></i>';
+    userChoiceFight.style.animation = "";
+    opponentChoiceFight.style.animation = "";
 }
 
-
-// For each element in choiceElement, we listen the event and take back the value
-// for(let i = 0; i < choiceElement.length; i++) {
-//     choiceElement[i].addEventListener('click', () => {
-//         console.log(choiceElement[i].getAttribute("value"));
-//         userChoice = parseInt(choiceElement[i].getAttribute("value"));
-//         fightContainer.style.display = "block";
-//         setTimeout(function() { userChoiceChange(userChoice); opponentChoiceChange(opponentChoiceGenerator()); fightResult(userChoice,opponentChoiceGenerator()); console.log(fightCurrentResult); scoreManage(fightCurrentResult); }, 2000);
-//         setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 4000);
-//     });
-// }
 
 choiceElement.forEach(function(choice) {
     choice.addEventListener('click', () => {
         console.log(choice.getAttribute("value"));
         userChoice = parseInt(choice.getAttribute("value"));
         fightContainer.style.display = "block";
-        setTimeout(function() { userChoiceChange(userChoice); opponentRandomChoice = opponentChoiceGenerator(); opponentChoiceChange(opponentRandomChoice); fightResult(userChoice, opponentRandomChoice); console.log(fightCurrentResult); scoreManage(fightCurrentResult); }, 2000);
-        setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 4000);
+        setTimeout(function() { userChoiceChange(userChoice); opponentRandomChoice = opponentChoiceGenerator(); opponentChoiceChange(opponentRandomChoice); fightResult(userChoice, opponentRandomChoice); console.log(fightCurrentResult); scoreManage(fightCurrentResult); gameResultAnimation(fightCurrentResult) }, 2000);
+        setTimeout(function() {fightContainer.style.display = "none"; resetGame(); }, 5000);
     })
 })
 console.log(opponentChoiceGenerator());
